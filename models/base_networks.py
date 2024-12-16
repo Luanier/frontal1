@@ -363,7 +363,7 @@ class MSDiscriminator(nn.Module):
 
         # We want the max num of scales to fit the size of the real examples. further scaling would create networks that
         # only train on fake examples
-        self.max_n_scales = np.min([np.int(np.ceil(np.log(np.min(real_crop_size) * 1.0 / self.min_size)
+        self.max_n_scales = np.min([np.int32(np.ceil(np.log(np.min(real_crop_size) * 1.0 / self.min_size)
                                                    / np.log(self.scale_factor))), max_n_scales])
 
         # Prepare a list of all the networks for all the wanted scales
